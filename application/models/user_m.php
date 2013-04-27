@@ -11,10 +11,10 @@ class User_m extends MY_Model {
      * @param $email
      * @param $created
      */
-    public function hash($password, $email, $created)
+    public function hash($password, $email)
     {
         $password = str_split($password, (strlen($password) / 2) + 1);
-        return hash('whirlpool', $email.$password[0] . 'bananarama' . $password[1] . 'dska2' . $created);
+        return hash('whirlpool', $email.$password[0] . 'bananarama' . $password[1] . 'dska2');
     }
 
 }

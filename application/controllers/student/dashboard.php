@@ -2,6 +2,8 @@
 
 /**
  * Class Dashboard
+ *
+ * The students dashboard.
  */
 class Dashboard extends CI_Controller {
 

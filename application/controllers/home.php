@@ -30,4 +30,52 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('signin');
 	}
+
+    /**
+     * Sign in the user.
+     */
+    public function login()
+    {
+        $this->load->model('user');
+
+        $validation_rules = array(
+            array(
+                'field' => 'email',
+                'label' => 'Email address',
+                'rules' => 'required|trim|valid_email'
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'required|trim|min_length[6]'
+            )
+        );
+
+        $this->form_validation->set_rules($validation_rules);
+
+        if ($this->form_validation->run())
+        {
+            if ($user = $this->user_m->get_by(array('email' => $this->input->post('email'))))
+            {
+                $password = $this->user_m->hash($this->input->post('password'), $this->input->post('email'), $user->created);
+
+                if ($this->user_m->get_by(array('email' => $this->input->post('email'), 'password' => $password)))
+                {
+                    // successful login
+                    if ($user->is_staff)
+                    {
+                        redirect('');
+                    }
+                    else
+                    {
+                        redirect('student/dashboard');
+                    }
+                }
+            }
+            $this->session->set_flashdata('error', 'Invalid sign in details');
+            redirect('');
+        }
+
+        $this->load->view('signin');
+    }
 }

@@ -77,6 +77,11 @@
           </form>                
           </div>
           </div>
+          
+          <div class="span12 pageFoot">
+              <p class="BottomOfScreenText">(C) 2013</p>
+              <br />
+          </div>
       </div>
       
       

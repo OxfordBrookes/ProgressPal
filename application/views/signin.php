@@ -17,8 +17,8 @@
           <div class="span6">   
               <div id="welcomeDescription">
                   <h2>Welcome.</h2>
-                  <p>ProgressPal is a new text text text e=text text tesxt test text.......
-                      dsj hello worldy :).</p>
+                  <p>Description of Page.  Text Text Text Text. Text Text Text Text.
+                  Text Text Text Text.  </p>
                   
               </div>
               
@@ -74,6 +74,11 @@
                 <br />
           </form>                
           </div>
+          </div>
+          
+          <div class="span12 pageFoot">
+              <p class="BottomOfScreenText">(C) 2013</p>
+              <br />
           </div>
       </div>
       

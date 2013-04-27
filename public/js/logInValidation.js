@@ -220,7 +220,7 @@ function setDescriptionOfField(newText){
 $(document).ready(function(){
   $(suFormSelector+' input').keyup(function() {
       if ($(this).val()!=""){ 
-          $(this).css("border","1px solid #6E6E6E")
+          $(this).css("border","1px solid #ccc")
       }
   });
 })

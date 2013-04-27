@@ -4,8 +4,8 @@
     <title>ProgresPal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/globalStyles.css" rel="stylesheet" media="screen">
-    <link href="css/logInStyles.css" rel="stylesheet" media="screen">
+    <link href="css/global-styles.css" rel="stylesheet" media="screen">
+    <link href="css/logIn-styles.css" rel="stylesheet" media="screen">
   </head>
   <body>
       <div class="container"> 

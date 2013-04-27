@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller {
      */
     public function __construct()
     {
+        parent::__construct();
         $this->load->model(array('module_m', 'task_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m'));
     }
 
@@ -20,7 +21,7 @@ class Dashboard extends CI_Controller {
      */
     public function index()
     {
-
+        
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule

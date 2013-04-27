@@ -1,0 +1,40 @@
+.milestones {
+	margin-left: 20px;
+}
+
+.circle {
+	width: 15px;
+	height: 15px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin-top: 4px;
+	margin-right: 4px;
+}
+
+.circle.grey {
+	background: #555;
+}
+
+.circle.red {
+	background: #933;
+}
+
+.circle.green {
+	background: #393;
+}
+
+.name {
+	color: #434343;
+	font-size: 14px;
+}
+
+.desc {
+	color: #666666;
+	font-size: 12px;
+}
+
+body {
+	width: 600px;
+	margin: 0 auto;
+}

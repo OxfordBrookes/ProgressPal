@@ -14,7 +14,7 @@ body {background-color:#FFFFFF;}
 .formCont input{width: 265px;}
 .formCont button{width: 280px; padding: 4px; border: 1px solid #B0B0B0; border-radius: 5px;}
 
-#welcomeDescription{width: 280px; height: 50px; margin: 0 50px 50px 50px; }
+#welcomeDescription{width: 280px; height: 50px; margin: 40px 50px 60px 50px; }
 
 .span6{ margin: 0;}
 

@@ -59,6 +59,11 @@ class Dashboard extends CI_Controller {
     //getUserClassProgress()
  
     //getUserProgress($userid) -> int userProgress
+    public function getUserProgress($userID)
+    {
+        $getUserClassProgress()
+        return;
+    }
     
     //getData($userID) -> JSON {modules, assignments, milestones}
     

@@ -17,7 +17,8 @@
           <div class="span6">   
               <div id="welcomeDescription">
                   <h2>Welcome.</h2>
-                  <p>ProgressPal is a new text text text e=text text tesxt test text........</p>
+                  <p>ProgressPal is a new text text text e=text text tesxt test text.......
+                      dsj hello worldy :).</p>
                   
               </div>
               
@@ -26,7 +27,7 @@
             <h2>Log In</h2>
             
             <form name="frmLogin" action="/index.php" method="post">
-                <input type="text" name="txtUsername" placeholder="Username"  />
+                <input type="text" name="txtUsername" placeholder="Email Address"  />
                 <input type="password" name="txtPassword" placeholder="Password" />
                 <br />  
                 <p class="small click" id="userOps">Forgot Password?</p>

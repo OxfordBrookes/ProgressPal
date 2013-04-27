@@ -6,10 +6,12 @@
         Purpose of the stylesheet follows.
 */
 
-#main{}
+body {background-image:url('../img/body_bg.jpg');}
+.container {background-image:url('../img/wrap_bg.jpg');}
+
 
 .head{width: 100%; padding: 2px 0 2px 0; border-radius: 5px 5px 0 0; background: #5C5C5C;}
-.container{border-radius: 5px; background: #E3E3E3; border: 1px solid #B0B0B0; margin-top: 5px;}
+.container{border-radius: 5px;  border: 1px solid #B0B0B0; margin-top: 5px;}
 
 
 h2{text-shadow: 1px 1px 1px rgba(0,0,0,0.6);}

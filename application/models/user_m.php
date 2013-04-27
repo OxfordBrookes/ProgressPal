@@ -3,6 +3,8 @@
 class User_m extends MY_Model {
 
     protected $_table = 'user';
+    
+    protected $primary_key = 'user_id';
 
     /**
      * Produce a password hash.

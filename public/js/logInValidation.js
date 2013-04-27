@@ -64,11 +64,7 @@ $(dynamicUserOp).click(function(){
 $('#iRememberItNow').click(function(){
   $(passFoggotCont).fadeOut();
   $(passReqCont).delay(450).fadeIn();  
-})
-
-
-
-
+});
 
 
 
@@ -82,18 +78,22 @@ $('#iRememberItNow').click(function(){
 
 
 //Input Field Names (ALL FULL SELECTORS)
-var suFormSelector    =   "[name=sighnUp]"        //The Main Form
-var suUsernameField   =   "[name=txtSuUsername]"  //Username Field
-var suEmailAddField   =   "[name=txtEmail]"       //Email Address Field
-var suPasswordField   =   "[name=txtSuPassword]"  //Password Field
-var suConfPassField   =   "[name=txtSuPasswordConf]"//Confirm Password Field
-var suMessageText     =   "#fieldDescription"     //P tag where field description will show
+var suFormSelector    =   "[name=frmSignUp]";        //The Main Form
+var suFirstNameField   =   "[name=txtFirstName]";  //Username Field
+var suLastNameField   =   "[name=txtLastName]";  //Username Field
+var suEmailAddField   =   "[name=txtEmail]";       //Email Address Field
+var suPasswordField   =   "[name=txtSuPassword]";  //Password Field
+var suConfPassField   =   "[name=txtSuPasswordConf]";//Confirm Password Field
+var suMessageText     =   "#fieldDescription";    //P tag where field description will show
 
 var element = "";
 
 //Tell the user what the point of the current field is
-$(suUsernameField).focus(function(){
-  setDescriptionOfField("The username will be your display name");
+$(suFirstNameField).focus(function(){
+  setDescriptionOfField("Your First Name");
+});
+$(suLastNameField).focus(function(){
+  setDescriptionOfField("Your Last Name");
 });
 $(suEmailAddField).focus(function(){
   setDescriptionOfField("Email used only for password recovery");
@@ -112,11 +112,11 @@ $(suFormSelector+" input").blur(function(){
 
 
 //Validate the username as they type it
-$(suFormSelector+" "+suUsernameField).keyup(function() {
+$(suFormSelector+" "+suFirstNameField).keyup(function() {
   if($(this).val().length < 2){ 
-    setDescriptionOfField("Your username must be at least 3 characters"); }
+    setDescriptionOfField("Your name must be at least 3 characters"); }
   else if($(this).val().length > 20){
-   setDescriptionOfField("Your username is too long");}
+   setDescriptionOfField("Your name is too long");}
   else { setDescriptionOfField(""); }
 });
 
@@ -136,23 +136,37 @@ $(suFormSelector+" "+suConfPassField).keyup(function() {
     setDescriptionOfField("Your Passwords must match"); }
 else if ($(this).val().length<5){
     setDescriptionOfField("Confirm the password you typed above");}
-else {setDescriptionOfField("Passwords match")}
+else {setDescriptionOfField("Passwords match")};
 });
 
-//Check the username is all cool
+//Check the Name is all cool
 $(suFormSelector).submit(function() {
-  if ($(suUsernameField).val() == '') {
-    showFailMessage("Please choose a username", suUsernameField);      
+  if ($(suFirstNameField).val() == '') {
+    showFailMessage("Please include your name", suFirstNameField);      
     return false; }
-  else if($(suUsernameField).val().length < 2){
-    showFailMessage("Username must be atleast 3 characters long", suUsernameField);
+  else if($(suFirstNameField).val().length < 2){
+    showFailMessage("Name must be atleast 3 characters long", suFirstNameField);
     return false; }
-  else if($(suUsernameField).val().length > 20){
-    showFailMessage("Username must be under 20 characters long", suUsernameField);
+  else if($(suFirstNameField).val().length > 20){
+    showFailMessage("Name must be under 20 characters long", suFirstNameField);
     return false; }
   else { return true; }
 });
 
+
+//Check their Last Name is also all cool
+$(suFormSelector).submit(function() {
+  if ($(suLastNameField).val() == '') {
+    showFailMessage("Please include your name", suLastNameField);      
+    return false; }
+  else if($(suLastNameField).val().length < 2){
+    showFailMessage("Name must be atleast 3 characters long", suLastNameField);
+    return false; }
+  else if($(suLastNameField).val().length > 20){
+    showFailMessage("Name must be under 20 characters long", suLastNameField);
+    return false; }
+  else { return true; }
+});
 
 //Check the password
 $(suFormSelector).submit(function() {

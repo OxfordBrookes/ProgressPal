@@ -1,3 +1,5 @@
 .idea/*
 application/logs/*
+nbproject/*
+.DS_STORE
 Thumbs.db

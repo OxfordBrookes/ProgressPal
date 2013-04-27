@@ -36,7 +36,7 @@ class Home extends CI_Controller {
      */
     public function login()
     {
-        $this->load->model('user');
+        $this->load->model('user_m');
 
         $validation_rules = array(
             array(
@@ -57,7 +57,7 @@ class Home extends CI_Controller {
         {
             if ($user = $this->user_m->get_by(array('email' => $this->input->post('email'))))
             {
-                $password = $this->user_m->hash($this->input->post('password'), $this->input->post('email'), $user->created);
+                $password = $this->user_m->hash($this->input->post('password'), $this->input->post('email'));
 
                 if ($this->user_m->get_by(array('email' => $this->input->post('email'), 'password' => $password)))
                 {
@@ -72,8 +72,8 @@ class Home extends CI_Controller {
                     }
                 }
             }
+
             $this->session->set_flashdata('error', 'Invalid sign in details');
-            redirect('');
         }
 
         $this->load->view('signin');

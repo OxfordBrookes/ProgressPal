@@ -3,9 +3,9 @@
   <head>
     <title>ProgresPal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/global-styles.css" rel="stylesheet" media="screen">
-    <link href="css/logIn-styles.css" rel="stylesheet" media="screen">
+    <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
+    <link href="<?php echo base_url('css/global-styles.css') ?>" rel="stylesheet" media="screen">
+    <link href="<?php echo base_url('css/logIn-styles.css') ?>" rel="stylesheet" media="screen">
   </head>
   <body>
       <div class="container"> 
@@ -19,16 +19,18 @@
                   <h2>Welcome.</h2>
                   <p>ProgressPal is a new text text text e=text text tesxt test text.......
                       dsj hello worldy :).</p>
-                  
+                  <p>
+                      <?php echo validation_errors('<div class="alert">', '</div>') ?>
+                  </p>
               </div>
               
        <div id="passwordRequired">   
         <div class="formCont">
             <h2>Log In</h2>
             
-            <form name="frmLogin" action="/index.php" method="post">
-                <input type="text" name="txtUsername" placeholder="Email Address"  />
-                <input type="password" name="txtPassword" placeholder="Password" />
+            <form name="frmLogin" action="<?php echo base_url('index.php/home/login') ?>" method="post">
+                <input type="text" name="email" placeholder="Email Address"  />
+                <input type="password" name="password" placeholder="Password" />
                 <br />  
                 <p class="small click" id="userOps">Forgot Password?</p>
                 <input type="checkbox" name="staySignedIn" class="hide" value="true" id="chkStaySignedIn"/>
@@ -78,9 +80,9 @@
       </div>
       
       
-    <script src="http://code.jquery.com/jquery.js"></script>
-     <script src="js/logInValidation.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url('http://code.jquery.com/jquery.js') ?>"></script>
+    <script src="<?php echo base_url('js/logInValidation.js') ?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
    
   </body>
 </html>

@@ -1,10 +1,19 @@
-CREATE SCHEMA IF NOT EXISTS `mydb`;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+DROP SCHEMA IF EXISTS `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+SHOW WARNINGS;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `user`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`user` (
+DROP TABLE IF EXISTS `user` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(30) NOT NULL ,
   `first_name` VARCHAR(20) NOT NULL ,
   `last_name` VARCHAR(20) NOT NULL ,
@@ -14,76 +23,110 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`user` (
   PRIMARY KEY (`user_id`) )
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `Email_UNIQUE` ON `mydb`.`user` (`email` ASC) ;
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `Email_UNIQUE` ON `user` (`email` ASC) ;
 
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `mydb`.`milestone`
+-- Table `milestone`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`milestone` (
+DROP TABLE IF EXISTS `milestone` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `milestone` (
   `milestone_id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(50) NULL ,
   `description` LONGTEXT NULL ,
-  `parent_modules_id` INT NULL ,
+  `parent_module_id` INT NULL ,
   `has_parent` TINYINT(1) NOT NULL ,
-  PRIMARY KEY (`milestone_id`)
-  FOREIGN KEY (`parent_modules_id`) REFERENCES `mydb`.`modules`(`modules_id`) )
+  PRIMARY KEY (`milestone_id`) )
 ENGINE = InnoDB;
 
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `mydb`.`deadline`
+-- Table `deadline`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`deadline` (
+DROP TABLE IF EXISTS `deadline` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `deadline` (
   `milestone_id` INT NOT NULL ,
+  `group_id` INT NOT NULL ,
   `start_date` DATE NOT NULL ,
   `end_date` DATE NOT NULL ,
   `deadline_id` INT NOT NULL AUTO_INCREMENT ,
-  PRIMARY KEY (`deadline_id`)
-  FOREIGN KEY (`milestone_id`) REFERENCES `mydb`.`milestone`(`milestone_id`) )
+  PRIMARY KEY (`deadline_id`) )
 ENGINE = InnoDB;
 
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `mydb`.`task`
+-- Table `task`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`task` (
+DROP TABLE IF EXISTS `task` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `task` (
   `milestone_id` INT NOT NULL ,
+  `group_id` VARCHAR(45) NOT NULL ,
   `user_id` VARCHAR(45) NOT NULL ,
   `is_complete` VARCHAR(45) NOT NULL ,
   `task_id` INT NOT NULL AUTO_INCREMENT ,
-  PRIMARY KEY (`task_id`)
-  FOREIGN KEY (`user_id`) REFERENCES `mydb`.`user`(`user_id`) )
-  FOREIGN KEY (`milestone_id`) REFERENCES `mydb`.`milestone`(`milestone_id`) )
-  
+  PRIMARY KEY (`task_id`) )
 ENGINE = InnoDB;
 
+SHOW WARNINGS;
+
 -- -----------------------------------------------------
--- Table `mydb`.`member`
+-- Table `group`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`member` (
+DROP TABLE IF EXISTS `group` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `group` (
+  `group_id` INT NOT NULL AUTO_INCREMENT ,
+  `milestone_id` INT NOT NULL ,
+  `name` VARCHAR(20) NOT NULL ,
+  `group_leader` INT NOT NULL ,
+  `parent_module` INT NOT NULL ,
+  PRIMARY KEY (`group_id`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `member`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `member` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `member` (
   `member_id` INT NOT NULL AUTO_INCREMENT ,
+  `group_id` INT NOT NULL ,
   `user_id` INT NOT NULL ,
-  `modules_id` INT NOT NULL,
-  PRIMARY KEY (`member_id`)
-  FOREIGN KEY (`user_id`) REFERENCES `mydb`.`user`(`user_id`) 
-  FOREIGN KEY (`modules_id`) REFERENCES `mydb`.`modules`(`modules_id`) )
+  PRIMARY KEY (`member_id`) )
 ENGINE = InnoDB;
 
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `mydb`.`modules`
+-- Table `module`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`modules` (
-  `modules_id` INT NOT NULL AUTO_INCREMENT ,
+DROP TABLE IF EXISTS `module` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `module` (
+  `module_id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `description` LONGTEXT NULL ,
-  `modules_leader` INT NOT NULL ,
-  PRIMARY KEY (`modules_id`) 
-  FOREIGN KEY (`modules_leader`) REFERENCES `mydb`.`user`(`user_id`) )
+  `module_leader` INT NOT NULL ,
+  `child_group` INT NOT NULL ,
+  PRIMARY KEY (`module_id`) )
 ENGINE = InnoDB;
 
-USE `mydb` ;
+SHOW WARNINGS;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

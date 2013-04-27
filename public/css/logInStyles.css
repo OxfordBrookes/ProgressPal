@@ -1,0 +1,17 @@
+/* 
+    Document   : logInStyles
+    Created on : 27-Apr-2013, 14:57:26
+    Author     : Alicia
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {background-color:#FFFFFF;}
+
+
+#formCont{width: 280px; height: 190px; margin: 80px auto; padding: 25px;
+          border: 1px solid #757575; border-radius: 4px;  background: #FFFFFF; }
+#formCont input{width: 265px;}
+#formCont button{width: 280px; padding: 4px; border: 1px solid #B0B0B0; border-radius: 5px;}
+
+#chkStaySignedIn{ }

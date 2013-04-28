@@ -3,9 +3,9 @@
 	<head>
 		<title>ProgressPal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="css/global-styles.css" rel="stylesheet" media="screen">
-		<link href="css/milestone-styles.css" rel="stylesheet" media="screen">
+		<link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
+		<link href="<?php echo base_url('css/global-styles.css') ?>" rel="stylesheet" media="screen">
+		<link href="<?php echo base_url('css/milestone-styles.css') ?>" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<h1>Milestones</h1>
@@ -37,6 +37,6 @@
 			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
 	</body>
 </html>

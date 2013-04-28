@@ -47,7 +47,6 @@ class Dashboard extends Student_Controller {
     {
         $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
         $moduleAvg = 0;
-        $cnt = count($assignments);
         foreach($assignments as $assignment){
             $moduleAvg += $this->getClassAvgAssignmentProgress($assignment->assignment_id);
         }
@@ -60,7 +59,7 @@ class Dashboard extends Student_Controller {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $numComp = 0;
         foreach($milestones as $milestone){
-            if($this->isMilestoneCompleted($milestone)){
+            if($this->isMilestoneCompleted($milestone->is_completed)){
                 $numComp++;
             }
         }
@@ -97,17 +96,16 @@ class Dashboard extends Student_Controller {
     public function isMilestoneCompleted($milestoneID)
     {
         $milestone = $this->progress_m->get_back('milestone_id',$milestoneID);
-        $completed = $milestone->is_completed;
-        return $completed;
+        return $milestone->is_completed;
     }
     
     public function getUserModuleProgress($userID, $moduleID){        
         $modules = $this->enrollment_m->get_many_by('user_id',$userID);
         foreach($modules as $module){
-            if($module==$moduleID){
+            if($module->module_id==$moduleID){
                 $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
                 foreach($assignments as $assignment){
-                $modProgress += $this->getUserAssignmentProgress($userID, $assignment);
+                    $modProgress += $this->getUserAssignmentProgress($userID, $assignment);
                     }  
                 }
         }
@@ -115,13 +113,12 @@ class Dashboard extends Student_Controller {
     }
     
     public function isUserMilestoneCompleted($userID, $milestoneID){
-        $user = $this->progress_m->get_back('user_id',$userID);
-        return $progress->is_completed;
+        $userProgress = $this->progress_m->get_back('user_id',$userID);
+        return $userPregress->is_completed;
     }
     public function getUserAssignmentProgress($userID,$assignmentID){
         $user = $this->progress_m->get_back('user_id',$userID);
-        $milestones = $this->milestones_m->get_many_by('user_id',$user);
-        $numOfMiles = count($milestones);
+        $milestones = $this->milestones_m->get_many_by('user_id',$user->user_id);
         $progress = 0;
         $numOfEnrolledMiles = 0;
         foreach($milestones as $milestone){

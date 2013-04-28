@@ -21,7 +21,34 @@ class Dashboard extends CI_Controller {
      */
     public function index()
     {
-        echo 'lol wut';
+       /* $moduleID = 1;
+        $assignments = $this->assignment_m->get_many_by('',$moduleID);
+       echo $assignments;*/
+       
+      /* [{"id":1,
+        "type":"module",
+        "complete":false,
+        "name":"example",
+        "desc":"sdjfhgjkdfgjksdfhg",
+        "children":[{"id":1,"type":"module",
+                    "complete":false,"name":"example",
+                    "desc":"sdjfhgjkdfgjksdfhg"
+                    }]
+        }]*/
+       
+       //array('type' => $obj->)
+       
+       $data = array('id' => 1,
+                    'type' => 'module',
+                    'complete' => false, 
+                    'name' => 'computing',
+                    'desc' => 'asdasdasd',
+                    'children' => array('id' => 1,
+                    'type' => 'assignment',
+                    'complete' => false, 
+                    'name' => 'python',
+                    'desc' => 'asdasdasd')
+                    );
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule
@@ -61,6 +88,7 @@ class Dashboard extends CI_Controller {
     //getUserProgress($userid) -> int userProgress
     public function getUserProgress($userID)
     {
+        
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

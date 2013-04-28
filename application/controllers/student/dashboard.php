@@ -46,8 +46,9 @@ class Dashboard extends CI_Controller {
     {
         $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
         $moduleAvg = 0;
-        for($i=0; i<count($assignments);$i++){
-            $moduleAvg += getAvgAssignemntProgress($assignments[i]['assignment_id']);
+        $cnt = count($assignments);
+        foreach($assignments as $assignment){
+            $moduleAvg += $this->getClassAvgAssignmentProgress($assignment->assignment_id);
         }
         return ($moduleAvg/(count($assignments)*100))*100;
     }
@@ -57,7 +58,8 @@ class Dashboard extends CI_Controller {
     {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $numComp = 0;
-        for($i=0;i<count($milestones);$i++){
+        $cnt = count($milestones);
+        for($i=0;$i<$cnt;$i++){
             if($milestones[i]['is_completed']){
                 $numComp++;
             }
@@ -70,7 +72,8 @@ class Dashboard extends CI_Controller {
     {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $completed = TRUE;
-        for($i=0;i<count($milestones);$i++){
+        $cnt = count($milestones);
+        for($i=0;$i<$cnt;$i++){
             if(!$milestones[i]['is_completed']){
                 $completed=FALSE;
             }
@@ -121,6 +124,7 @@ class Dashboard extends CI_Controller {
        
        echo json_encode($data);
        echo $userID;
+       echo $this->getClassAvgModuleProgress(4);
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

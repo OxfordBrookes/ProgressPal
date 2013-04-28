@@ -69,7 +69,7 @@ class Staff_Controller extends MY_Controller {
     {
         parent::__construct();
 
-        if ( ! $this->session->user_data('is_staff') == TRUE)
+        if ( ! $this->session->userdata('is_staff') == TRUE)
         {
             // user is not signed in! We should redirect them
             redirect('');

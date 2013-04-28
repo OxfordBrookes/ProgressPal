@@ -64,7 +64,7 @@ class Dashboard extends Student_Controller {
                 $numComp++;
             }
         }
-        return ($numComp/count($milestones))*100;
+        return ($numComp/count($milestones)*100)*100;
     }
     
     public function isModuleCompleted($moduleID)
@@ -111,7 +111,7 @@ class Dashboard extends Student_Controller {
                     }  
                 }
         }
-        return ($modProgress/count($assignments))*100;
+        return ($modProgress/count($assignments)*100)*100;
     }
     
     public function isUserMilestoneCompleted($userID, $milestoneID){
@@ -125,9 +125,9 @@ class Dashboard extends Student_Controller {
         $progress = 0;
         $numOfEnrolledMiles = 0;
         foreach($milestones as $milestone){
-            if($milestone['parent_assignment_id']==$assignmentID){
+            if($milestone->parent_assignment_id==$assignmentID){
                 $numOfEnrolledMiles++;
-                if($milestone['is_completed']){
+                if($this.isMilestoneCompleted($milestone)){
                     $progress++;
                 }
             }

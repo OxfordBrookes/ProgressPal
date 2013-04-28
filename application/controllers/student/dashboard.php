@@ -14,7 +14,7 @@ class Dashboard extends Student_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m', 'progress_m'));
+        $this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m', 'progress_m', 'enrollment_m'));
     }
 
     /**
@@ -83,27 +83,45 @@ class Dashboard extends Student_Controller {
     
     public function getEnrolledUsers($moduleID)
     {
-        $enrollments = $this->milestone_m->get_many_by('module_id',$moduleID);
-        return $enrollments;
+        $enrollments = $this->enrollment_m->get_many_by('module_id',$moduleID);
+        //$assignments = $this->assigment_m->get_many_by('parent_module_id',$moduleID);
+        $userIDs = array();
+        foreach ($enrollments as $enrollment)
+        {
+            $userIDs[] = $enrollment->user_id;
+        }
+        return $userIDs;
     }
     
-    public function isAssignmentCompleted($assignmentID)
+    public function isAssignmentCompleted($userID, $assignmentID)
     {
+        //echo $this->isUserMilestoneCompleted(3,2);
+        
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
-        $completed = TRUE;
+        //var_dump($milestones);
+        $parent_module_id = $this->assignment_m->get_by('assignment_id',$assignmentID)->parent_module_id;
+        
+        $user_ids = $this->getEnrolledUsers($parent_module_id);
+        var_dump($user_ids);
         foreach($milestones as $milestone){
-            if(!$this->isMilestoneCompleted($milestone)){
-                $completed=FALSE;
-                break;
+            foreach($user_ids as $userID)
+            {
+                var_dump($milestone->milestone_id);
+                var_dump($userID);
+                if(!($this->isUserMilestoneCompleted($userID,$milestone->milestone_id))){
+                    return false;
+                }
             }
         }
-        return $completed;
+        return true;
     }
     
+    //correct
     public function isUserMilestoneCompleted($userID,$milestoneID)
     {
-        $progress = $this->progress_m->get_back(array('user_id' => $userID, 'milestone_id' => $milestoneID));
-        return $progress->is_completed;
+        $progress = $this->progress_m->get_by(array('user_id' => $userID, 'milestone_id' => $milestoneID));
+        var_dump($progress);
+        return $progress->is_completed === '1';
     }
     
     public function getUserModuleProgress($userID){        

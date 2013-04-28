@@ -15,26 +15,6 @@
 			<div class="bar bar-danger" style="width: 45%;">Incomplete</div>
 		</div>
 		<div class="milestones">
-			<div class="milestone">
-				<div class="circle grey pull-left"></div>
-				<div class="pull-left">
-					<div class="name">Name</div>
-					<div class="desc">Decription</div>
-				</div>
-				<div class="clearfix"></div>
-				<div class="milestones">
-					<div class="milestone">
-						<div>
-						<div class="circle grey pull-left"></div>
-						<div class="pull-left">
-							<div class="name">Name</div>
-							<div class="desc">Decription</div>
-						</div>
-						<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>

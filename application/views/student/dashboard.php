@@ -10,9 +10,9 @@
 	<body>
 		<h1>Milestones</h1>
 		<div class="progress">
-			<div class="bar bar-success" style="width: 35%;">You</div>
-			<div class="bar bar-warning" style="width: 20%;">Average</div>
-			<div class="bar bar-danger" style="width: 45%;">Incomplete</div>
+			<div class="bar bar-success" style="width: 0%;">You</div>
+			<div class="bar bar-warning" style="width: 0%;">Average</div>
+			<div class="bar bar-danger" style="width: 100%;">Incomplete</div>
 		</div>
 		<div id="milestone" class="milestones">
 		</div>

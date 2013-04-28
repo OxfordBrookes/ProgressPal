@@ -10,6 +10,7 @@ class Milestone_m extends MY_Model {
     protected $_table = 'milestone';
     protected $primary_key = 'milestone_id';
 
-    protected $belongs_to = array('modules' => array('model' => 'module_m'));
+    protected $belongs_to = array('assignment' => array('model' => 'assignment_m'));
+    
 
 }

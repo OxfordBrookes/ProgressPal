@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller {
      */
     public function index()
     {
-
+        echo 'lol wut';
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule
@@ -61,8 +61,8 @@ class Dashboard extends CI_Controller {
     //getUserProgress($userid) -> int userProgress
     public function getUserProgress($userID)
     {
-        $getUserClassProgress()
-        return;
+        //$getUserClassProgress()
+        //return;
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

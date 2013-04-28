@@ -10,6 +10,6 @@ class Assignment_m extends MY_Model {
     protected $_table = 'assignment';
     protected $primary_key = 'assignment_id';
 
-    protected $belongs_to = array('modules' => array('model' => 'module_m'));
+    protected $belongs_to = array('module' => array('model' => 'module_m'));
 
 }

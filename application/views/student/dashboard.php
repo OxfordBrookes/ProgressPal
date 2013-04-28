@@ -6,6 +6,7 @@
 		<link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
 		<link href="<?php echo base_url('css/global-styles.css') ?>" rel="stylesheet" media="screen">
 		<link href="<?php echo base_url('css/milestone-styles.css') ?>" rel="stylesheet" media="screen">
+                <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<h1>Milestones</h1>

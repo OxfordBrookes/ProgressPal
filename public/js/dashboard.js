@@ -1,7 +1,7 @@
 var BASE_URL = "dashboard/"
 var USER_ID = 1;
 
-(function (window, document, $, undefined) {
+(function (window, document, $, baseUrl, userId, undefined) {
     "use strict";
 
     // Load progress bar data.
@@ -62,4 +62,4 @@ var USER_ID = 1;
         });
     });
 
-}(this, this.window, this.jQuery));
+}(this, this.window, this.jQuery, BASE_URL, USER_ID));

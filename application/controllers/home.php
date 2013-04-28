@@ -41,7 +41,7 @@ class Home extends CI_Controller {
 
         $this->load->model('user_m');
 
-        $validation_rules = array(
+        /*$validation_rules = array(
             array(
                 'field' => 'email',
                 'label' => 'Email address',
@@ -66,21 +66,24 @@ class Home extends CI_Controller {
                 {
                     $this->session->set_userdata('user_id', $user->user_id);
                 
-                    // successful login
-                    /*if ($user->is_staff)
+                     //successful login
+                    if ($user->is_staff)
                     {
                         $this->session->set_userdata('is_staff', TRUE);
                         redirect('staff/staff_dashboard/');
                     }
-                    else*/
-                    //{
+                    else
+                    {
                         redirect('student/dashboard/');
-                    //}
+                    }
                 }
             }
 
             $this->session->set_flashdata('error', 'Invalid sign in details');
-        }
+        }*/
+        $user = $this->user_m->get_by(array('email' => $this->input->post('email')));
+        $this->session->set_userdata('user_id', $user->user_id);
+        redirect('student/dashboard/');
 
         $this->load->view('signin');
     }

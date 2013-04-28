@@ -10,6 +10,7 @@
   <body>
       <div class="container"> 
           <div class="head">
+<<<<<<< HEAD
               <h1 class="c1">ProgressPal</h1>
               <img src="<?php echo base_url('img/blob.png') ?>" style="display: inline; width: 45px; margin: 2px;" />
           </div>    
@@ -20,6 +21,16 @@
               <div id="welcomeDescription" style="background: url(<?php echo base_url('img/up-grey.png') ?>)">
                   <h2 class="c2">Welcome.</h2>
                   <p>ProgressPal - A Buddy to make you Rise!</p>
+=======
+              <h1>ProgressPal</h1>
+          </div>    
+ 
+          
+          <div class="span6">   
+              <div id="welcomeDescription">
+                  <h2>Welcome.</h2>
+                  <p>ProgressPal is a new website for tracking coursework progress.</p>
+>>>>>>> web
                   <p>
                       <?php echo validation_errors('<div class="alert">', '</div>') ?>
                   </p>
@@ -27,7 +38,11 @@
               
        <div id="passwordRequired">   
         <div class="formCont">
+<<<<<<< HEAD
             <h2 class="c3">Log In</h2>
+=======
+            <h2>Log In</h2>
+>>>>>>> web
             
             <form name="frmLogin" action="<?php echo base_url('index.php/home/login') ?>" method="post">
                 <input type="text" name="email" placeholder="Email Address"  />
@@ -42,7 +57,11 @@
         </div>
           
         <div class="hide formCont" id="iForgotMyPassword">
+<<<<<<< HEAD
            <h3 class="c4">Reset Password</h3>
+=======
+           <h3>Reset Password</h3>
+>>>>>>> web
           <form name="forgetPassword" action="/actions/resetPassword.php" method="post">
             <p>
               Enter your username or email address below, and we will 
@@ -60,7 +79,11 @@
           
           <div class="span6">
           <div class="formCont" id="signUpForm">
+<<<<<<< HEAD
            <h2 class="c5">Sign Up</h2>
+=======
+           <h2>Sign Up</h2>
+>>>>>>> web
           <form name="frmSignUp" action="" method="post">
                 <input type="text" name="txtFirstName" placeholder="First Name" />
                 <br />

@@ -1,0 +1,7 @@
+.idea/*
+application/logs/*
+application/config/config.php
+nbproject/*
+.DS_STORE
+Thumbs.db
+.gitignore

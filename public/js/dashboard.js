@@ -1,5 +1,5 @@
-//var BASE_URL = ""
-//var USER_ID = 1;
+var BASE_URL = "";
+var USER_ID = 1;
 
 (function (window, document, $, baseUrl, userId, undefined) {
     "use strict";

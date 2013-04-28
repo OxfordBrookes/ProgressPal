@@ -5,9 +5,9 @@ var USER_ID = 1;
     "use strict";
 
     var baseUrl = (baseUrlGrr[baseUrlGrr.length - 1] === "/") ? baseUrlGrr : baseUrlGrr + "dashboard/";
+    var progress;
 
-    // Load progress bar data.
-    $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {
+    var calculateProgress = function () {
         var userProgress = (progress.user / progress.total) * 100;
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
@@ -16,6 +16,12 @@ var USER_ID = 1;
         $(".bar.bar-success").width(userProgress + "%");
         $(".bar.bar-warning").width(avgProgress + "%");
         $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
+    };
+
+    // Load progress bar data.
+    $.getJSON(baseUrl + "getProgress/" + userId, function (data) {
+        progress = data;
+        calculateProgress();
     });
 
     // Load milestones.
@@ -48,10 +54,14 @@ var USER_ID = 1;
                 $this.removeClass("green");
                 $this.addClass("red");
                 $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false", {"type": "post"});
+                progress.user -= 1;
+                calculateProgress();
             } else if ($this.hasClass("red")) {
                 $this.removeClass("red");
                 $this.addClass("green");
                 $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true", {"type": "post"});
+                progress.user += 1;
+                calculateProgress();
             } else {
                 $milestones = $($this.parent().children(".milestones"));
                 console.log($milestones);

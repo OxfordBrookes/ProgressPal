@@ -17,8 +17,7 @@
           <div class="span6">   
               <div id="welcomeDescription">
                   <h2>Welcome.</h2>
-                  <p>ProgressPal is a new text text text e=text text tesxt test text.......
-                      dsj hello worldy :).</p>
+                  <p>ProgressPal is a new website for tracking coursework progress. It let's lecturers quickly find out what part of an assignment a class is stuck on and therefore allow them to provide help more effectively.</p>
                   <p>
                       <?php echo validation_errors('<div class="alert">', '</div>') ?>
                   </p>

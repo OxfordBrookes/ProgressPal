@@ -21,15 +21,13 @@ class Dashboard extends CI_Controller {
      */
     public function index()
     {
-
+        echo 'lol wut';
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule
     public function getClassAvgModuleProgress($moduleID)
     {
-        $modules = $this->module_m->get_many_by('module_id',$moduleID);
-        
-        
+        $assignments = $this->assignment_m->get_many_by('',$moduleID);
         $assignmentAvg = getAvgAssignemntProgress($assignmentID);
         $moduleAvg;
         return $moduleAvg;
@@ -38,7 +36,9 @@ class Dashboard extends CI_Controller {
     //getAvgAssignmentProgress($assignmentID)
     public function getClassAvgAssignmentProgress($assignmentID)
     {
-        $assignmentAvg;
+        $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
+        var_dump($milestones);
+        //for($i=0; $assignmentID ){}
         return $assignmentAvg;
     }
     
@@ -61,8 +61,6 @@ class Dashboard extends CI_Controller {
     //getUserProgress($userid) -> int userProgress
     public function getUserProgress($userID)
     {
-        $getUserClassProgress()
-        return;
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

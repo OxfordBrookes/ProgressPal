@@ -44,7 +44,7 @@ class Student_Controller extends MY_Controller {
     {
         parent::__construct();
 
-        if ( ! $this->session->user_data('student_id'))
+        if ( ! $this->session->userdata('student_id'))
         {
             // user is not signed in! We should redirect them
             redirect('');

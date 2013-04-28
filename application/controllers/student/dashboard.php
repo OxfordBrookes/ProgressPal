@@ -5,7 +5,7 @@
  *
  * The students dashboard.
  */
-class Dashboard extends CI_Controller {
+class Dashboard extends Student_Controller {
 
     /**
      * Constructor.

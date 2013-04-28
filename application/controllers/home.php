@@ -61,9 +61,12 @@ class Home extends CI_Controller {
 
                 if ($this->user_m->get_by(array('email' => $this->input->post('email'), 'password' => $password)))
                 {
+                    $this->session->set_userdata('user_id', $user->user_id);
+
                     // successful login
                     if ($user->is_staff)
                     {
+                        $this->session->set_userdata('is_staff', TRUE);
                         redirect('');
                     }
                     else

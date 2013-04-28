@@ -38,17 +38,7 @@ class Dashboard extends CI_Controller {
        
        //array('type' => $obj->)
        
-       $data = array('id' => 1,
-                    'type' => 'module',
-                    'complete' => false, 
-                    'name' => 'computing',
-                    'desc' => 'asdasdasd',
-                    'children' => array('id' => 1,
-                    'type' => 'assignment',
-                    'complete' => false, 
-                    'name' => 'python',
-                    'desc' => 'asdasdasd')
-                    );
+       
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule
@@ -89,6 +79,26 @@ class Dashboard extends CI_Controller {
     public function getUserProgress($userID)
     {
         
+    }
+    
+    public function getData()
+    {
+        $data = array(array(
+           'id' => 1,
+           'type' => 'module',
+           'complete' => false, 
+           'name' => 'computing',
+           'desc' => 'asdasdasd',
+           'children' => array(array(
+               'id' => 2,
+                'type' => 'assignment',
+                'complete' => false, 
+                'name' => 'python',
+                'desc' => 'asdasdasd'
+               )))
+        );
+       
+       echo json_encode($data);
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

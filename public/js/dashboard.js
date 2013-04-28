@@ -1,8 +1,11 @@
 var BASE_URL = "";
+var PAGE_URL = "index.php/student/dashboard/";
 var USER_ID = 1;
 
-(function (window, document, $, baseUrl, userId, undefined) {
+(function (window, document, $, baseUrl, userId, pageUrl, undefined) {
     "use strict";
+
+    baseUrl += pageUrl;
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {
@@ -62,4 +65,4 @@ var USER_ID = 1;
         });
     });
 
-}(this, this.window, jQuery, BASE_URL, USER_ID));
+}(this, this.window, jQuery, BASE_URL, USER_ID, PAGE_URL));

@@ -14,7 +14,7 @@ class Dashboard extends Student_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m', 'progress_m', 'enrollment_m'));
+        //$this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m', 'progress_m', 'enrollment_m'));
     }
 
     /**
@@ -159,7 +159,7 @@ class Dashboard extends Student_Controller {
     {
         //echo json_encode($userID,$this->getClassAvgModuleProgress,$this->$totalMilestones);
         //echo json_encode(array('user'=>  $this->getUserModuleProgress($userID, $moduleID)))
-        echo json_encode(array('user'=>10,'avg'=>12,'total'=>20));       
+        echo json_encode(array('user'=>0,'avg'=>3,'total'=>6));       
     }
     
     public function getData($userID)
@@ -169,16 +169,74 @@ class Dashboard extends Student_Controller {
            'id' => 1,
            'type' => 'module',
            'complete' => false, 
-           'name' => 'computing',
-           'desc' => 'asdasdasd',
+           'name' => 'Computing',
+           'desc' => 'software',
            'children' => array(array(
                'id' => 2,
                 'type' => 'assignment',
                 'complete' => false, 
                 'name' => 'python',
-                'desc' => 'asdasdasd'
-               )))
-        );
+                'desc' => 'snake'),
+               array(
+               'id' => 3,
+                'type' => 'assignment',
+                'complete' => false, 
+                'name' => 'java',
+                'desc' => 'coffee','children' => array(array(
+               'id' => 4,
+                'type' => 'milestone',
+                'complete' => false, 
+                'name' => 'helloworld',
+                'desc' => 'lol'),
+               array(
+               'id' => 5,
+                'type' => 'milestone',
+                'complete' => false, 
+                'name' => 'game',
+                'desc' => 'AI and stuff'),
+               ))
+                
+               )),
+            
+            
+            array(
+           'id' => 1,
+           'type' => 'module',
+           'complete' => false, 
+           'name' => 'Business',
+           'desc' => 'money',
+           'children' => array(
+               array(
+               'id' => 3,
+                'type' => 'assignment',
+                'complete' => false, 
+                'name' => 'accounting',
+                'desc' => 'numbers','children' => array(array(
+               'id' => 4,
+                'type' => 'milestone',
+                'complete' => false, 
+                'name' => 'startup',
+                'desc' => 'lol'),
+               array(
+               'id' => 5,
+                'type' => 'milestone',
+                'complete' => false, 
+                'name' => 'millionaire',
+                'desc' => 'cool stuff')
+               )),array(
+               'id' => 2,
+                'type' => 'assignment',
+                'complete' => false, 
+                'name' => 'marketing',
+                'desc' => 'sell stuff')
+                
+               
+            
+            
+            
+            
+            )
+        ));
        
        echo json_encode($data);
        //echo $userID;

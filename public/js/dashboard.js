@@ -26,7 +26,7 @@
            for (i = 0; i < len; i += 1) {
                milestone = milestones[i];
                circleColour = (milestone.children) ? "grey" : ((milestone.complete === true) ? "green" : "red");
-               children = (milestone.children) ? "<div class='milestones'>\n" + showMilestones(milestone.children) + "</div>" : "";
+               children = (milestone.children) ? "<div class='milestones' style='display:none'>\n" + showMilestones(milestone.children) + "</div>" : "";
 
                s += "<div id='" + milestone.type + "_" + milestone.id + "' class='milestone'><div class='circle " + circleColour + " pull-left'></div><div class='pull-left'><div class='name'>" + milestone.name + "</div><div class='desc'>" + milestone.desc + "</div></div><div class='clearfix'></div>" + children + "</div>";
            }

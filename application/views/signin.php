@@ -11,8 +11,10 @@
       <div class="container"> 
           <div class="head">
               <h1 class="c1">ProgressPal</h1>
+              <img src="<?php echo base_url('img/blob.png') ?>" style="display: inline; width: 45px; margin: 2px;" />
           </div>    
- 
+          
+            <img src="<?php echo base_url('img/up-grey.png') ?>" style="position: absolute; opacity: .4; width: 310px; margin-top: -20px;" />
           
           <div class="span6">   
               <div id="welcomeDescription" style="background: url(<?php echo base_url('img/up-grey.png') ?>)">

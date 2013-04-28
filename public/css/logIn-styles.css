@@ -30,7 +30,7 @@ button:hover{background: #D8D8D8;}
    box-shadow:         inset 0 0 5px rgba(80, 80, 80, .4);
 }
 
-.c1{color: #0489B1}
+.c1{color: #0489B1; display: inline;}
 .c2{color: #FA5882}
 .c3{color: #DBA901}
 .c4{ color: #04B404}

@@ -72,22 +72,19 @@ class Dashboard extends Student_Controller {
         $completed = TRUE;
         $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
         
-        
-        
         foreach($assignments as $assignment){
-            if(!$this->isUserMilestoneCompleted(,$assignment->assignment_id)){
+            //if(!$this->isUserMilestoneCompleted(,$assignment->assignment_id)){
                 $completed = FALSE;
                 break;
-            }
+            //}
         }
-        return $completed;
+        //return $completed;
     }
     
     public function getEnrolledUsers($moduleID)
     {
-        $enrollments = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
-        
-        return 
+        $enrollments = $this->milestone_m->get_many_by('module_id',$moduleID);
+        return $enrollments;
     }
     
     public function isAssignmentCompleted($assignmentID)
@@ -149,7 +146,6 @@ class Dashboard extends Student_Controller {
     
     public function getData($userID)
     {
-        
         $data = array(array(
            'id' => 1,
            'type' => 'module',
@@ -172,6 +168,7 @@ class Dashboard extends Student_Controller {
     
     public function changeComplete($str)
     {
+        //$this->
         //return true;
     }
     //getData($userID) -> JSON {modules, assignments, milestones}

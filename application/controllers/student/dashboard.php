@@ -98,7 +98,7 @@ class Dashboard extends Student_Controller {
         //echo $this->isUserMilestoneCompleted(3,2);
         
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
-        //var_dump($milestones);
+        var_dump($milestones);
         $parent_module_id = $this->assignment_m->get_by('assignment_id',$assignmentID)->parent_module_id;
         
         $user_ids = $this->getEnrolledUsers($parent_module_id);
@@ -164,6 +164,7 @@ class Dashboard extends Student_Controller {
     
     public function getData($userID)
     {
+        
         $data = array(array(
            'id' => 1,
            'type' => 'module',

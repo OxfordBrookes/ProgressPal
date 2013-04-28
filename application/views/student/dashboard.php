@@ -9,7 +9,9 @@
                 <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
 	</head>
 	<body>
-		<h1>Milestones</h1>
+            <div class="container">
+                <div class="hero-unit">
+		<h1>Milestones</h1> 
 		<div class="progress">
 			<div class="bar bar-success" style="width: 0%;">You</div>
 			<div class="bar bar-warning" style="width: 0%;">Average</div>
@@ -17,8 +19,11 @@
 		</div>
 		<div id="milestone" class="milestones">
 		</div>
+                </div>
+            </div>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
 		<script src="<?php echo base_url('js/dashboard.js') ?>"></script>
+            
 	</body>
 </html>

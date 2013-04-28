@@ -6,6 +6,7 @@
 class Enrollment_m extends MY_Model {
 
     protected $_table = 'enrollment';
+    protected $primary_key = 'enrollment_id';
 
     protected $has_many = array(
         'user' => array('model' => 'user_m'),

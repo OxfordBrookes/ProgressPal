@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProgresPal</title>
+    <title>ProgressPal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
     <link href="<?php echo base_url('css/global-styles.css') ?>" rel="stylesheet" media="screen">

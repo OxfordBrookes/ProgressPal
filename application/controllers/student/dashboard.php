@@ -108,7 +108,7 @@ class Dashboard extends Student_Controller {
     public function getProgress($userID)
     {
         //echo json_encode($userID,$this->getClassAvgModuleProgress,$this->$totalMilestones);
-        echo json_encode($userID,12,20);       
+        echo json_encode(array('user'=>(int)$userID,'avg'=>12,'total'=>20));       
     }
     
     public function getData($userID)
@@ -130,8 +130,8 @@ class Dashboard extends Student_Controller {
         );
        
        echo json_encode($data);
-       echo $userID;
-       echo $this->getClassAvgModuleProgress(4);
+       //echo $userID;
+       //echo $this->getClassAvgModuleProgress(4);
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

@@ -14,7 +14,7 @@ class Dashboard extends Student_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m'));
+        $this->load->model(array('module_m', 'milestone_m', 'user_m', 'enrollment_m', 'assignment_m', 'progress_m'));
     }
 
     /**
@@ -59,9 +59,8 @@ class Dashboard extends Student_Controller {
     {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $numComp = 0;
-        $cnt = count($milestones);
-        for($i=0;$i<$cnt;$i++){
-            if($milestones[i]['is_completed']){
+        foreach($milestones as $milestone){
+            if($this->isMilestoneCompleted($milestone)){
                 $numComp++;
             }
         }
@@ -70,7 +69,15 @@ class Dashboard extends Student_Controller {
     
     public function isModuleCompleted($moduleID)
     {
-        return false;
+        $completed = TRUE;
+        $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
+        foreach($assignments as $assignment){
+            if(!$this->isAssignmentCompleted($assignment)){
+                $completed = FALSE;
+                break;
+            }
+        }
+        return $completed;
     }
     
     
@@ -78,10 +85,10 @@ class Dashboard extends Student_Controller {
     {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $completed = TRUE;
-        $cnt = count($milestones);
-        for($i=0;$i<$cnt;$i++){
-            if(!$milestones[i]['is_completed']){
+        foreach($milestones as $milestone){
+            if(!$this->isMilestoneCompleted($milestone)){
                 $completed=FALSE;
+                break;
             }
         }
         return $completed;
@@ -89,20 +96,44 @@ class Dashboard extends Student_Controller {
     
     public function isMilestoneCompleted($milestoneID)
     {
-        $milestone = $this->milestone_m->get_back('milestone_id',$milestoneID);
-        $completed = FALSE;
-        if($milestone['is_completed']){
-            $completed = TRUE;
-            }
+        $milestone = $this->progress_m->get_back('milestone_id',$milestoneID);
+        $completed = $milestone->is_completed;
         return $completed;
     }
     
-
-    public function getUserModuleProgress($userID, $moduleID){
-        $user = $this->user_m->get_back('user_id',$userID);
+    public function getUserModuleProgress($userID, $moduleID){        
+        $modules = $this->enrollment_m->get_many_by('user_id',$userID);
+        foreach($modules as $module){
+            if($module==$moduleID){
+                $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
+                foreach($assignments as $assignment){
+                $modProgress += $this->getUserAssignmentProgress($userID, $assignment);
+                    }  
+                }
+        }
+        return ($modProgress/count($assignments))*100;
     }
-    //getUserAssignmentProgress()
-    //getUserClassProgress()
+    
+    public function isUserMilestoneCompleted($userID, $milestoneID){
+        $user = $this->progress_m->get_back('user_id',$userID);
+        return $progress->is_completed;
+    }
+    public function getUserAssignmentProgress($userID,$assignmentID){
+        $user = $this->progress_m->get_back('user_id',$userID);
+        $milestones = $this->milestones_m->get_many_by('user_id',$user);
+        $numOfMiles = count($milestones);
+        $progress = 0;
+        $numOfEnrolledMiles = 0;
+        foreach($milestones as $milestone){
+            if($milestone['parent_assignment_id']==$assignmentID){
+                $numOfEnrolledMiles++;
+                if($milestone['is_completed']){
+                    $progress++;
+                }
+            }
+        }
+        return ($progress/$numOfEnrolledMiles)*100;
+    }
  
     //getUserProgress($userid) -> int userProgress
     public function getProgress($userID)

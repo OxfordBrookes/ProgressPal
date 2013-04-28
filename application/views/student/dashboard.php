@@ -21,6 +21,10 @@
 		</div>
                 </div>
             </div>
+        <script type="text/JavaScript">
+            BASE_URL = "<?php echo base_url() ?>";
+            USER_ID = <?php echo $this->session->userdata('user_id') ?>;
+        </script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
 		<script src="<?php echo base_url('js/dashboard.js') ?>"></script>

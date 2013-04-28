@@ -1,12 +1,12 @@
-(function (window, document, $, undefined) {
-    "use strict";
+var BASE_URL = "dashboard/"
+var USER_ID = 1;
 
-    var baseUrl = "dashboard/"
-    var userId = 1;
+(function (window, document, $, baseUrl, userId, undefined) {
+    "use strict";
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {
-        var userProgress = (progress.user / progress.total) * 100);
+        var userProgress = (progress.user / progress.total) * 100;
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
         avgProgress = (avgProgress > 0) ? avgProgress : 0;
@@ -62,4 +62,4 @@
         });
     });
 
-}(this, this.window, this.jQuery));
+}(this, this.window, this.jQuery, BASE_URL, USER_ID));

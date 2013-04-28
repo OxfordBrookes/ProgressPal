@@ -57,13 +57,14 @@ class Dashboard extends Student_Controller {
     public function getClassAvgAssignmentProgress($assignmentID)
     {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
+        
         $numComp = 0;
         foreach($milestones as $milestone){
             if($this->isMilestoneCompleted()){
                 $numComp++;
             }
         }
-        return ($numComp/count($milestones)*100)*100;
+        return $numComp/count($milestones);
     }
     
     public function isModuleCompleted($moduleID)
@@ -84,6 +85,7 @@ class Dashboard extends Student_Controller {
     
     public function getEnrolledUsers($moduleID)
     {
+        $enrollments = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         
         return 
     }
@@ -170,7 +172,7 @@ class Dashboard extends Student_Controller {
     
     public function changeCompelte($str)
     {
-        return true;
+        //return true;
     }
     //getData($userID) -> JSON {modules, assignments, milestones}
     

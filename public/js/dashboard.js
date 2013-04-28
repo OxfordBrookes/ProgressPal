@@ -1,4 +1,4 @@
-var BASE_URL = "dashboard/"
+var BASE_URL = "";
 var USER_ID = 1;
 
 (function (window, document, $, baseUrl, userId, undefined) {
@@ -62,4 +62,4 @@ var USER_ID = 1;
         });
     });
 
-}(this, this.window, this.jQuery, BASE_URL, USER_ID));
+}(this, this.window, jQuery, BASE_URL, USER_ID));

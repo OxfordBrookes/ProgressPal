@@ -93,28 +93,28 @@ class Dashboard extends Student_Controller {
         return $completed;
     }
     
-    public function isMilestoneCompleted($milestoneID)
+    public function isMilestoneCompleted($userID,$milestoneID)
     {
-        $milestone = $this->progress_m->get_back('milestone_id',$milestoneID);
-        return $milestone->is_completed;
+        $progress = $this->progress_m->get_back(array('user_id' => $userID, 'milestone_id' => $milestoneID));
+        return $progress->is_completed;
     }
     
-    public function getUserModuleProgress($userID, $moduleID){        
+    public function getUserModuleProgress($userID){        
         $modules = $this->enrollment_m->get_many_by('user_id',$userID);
+        $modProgress = 0;
         foreach($modules as $module){
-            if($module->module_id==$moduleID){
-                $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
+            //if($module->module_id==$moduleID){
+                $assignments = $this->assignment_m->get_many_by('parent_module_id',$module->module_id);
                 foreach($assignments as $assignment){
                     $modProgress += $this->getUserAssignmentProgress($userID, $assignment);
                     }  
                 }
-        }
-        return ($modProgress/count($assignments)*100)*100;
+        return $modProgress;///count($assignments);
     }
     
     public function isUserMilestoneCompleted($userID, $milestoneID){
         $userProgress = $this->progress_m->get_back('user_id',$userID);
-        return $userPregress->is_completed;
+        return $userProgress->is_completed;
     }
     public function getUserAssignmentProgress($userID,$assignmentID){
         $user = $this->progress_m->get_back('user_id',$userID);
@@ -136,6 +136,7 @@ class Dashboard extends Student_Controller {
     public function getProgress($userID)
     {
         //echo json_encode($userID,$this->getClassAvgModuleProgress,$this->$totalMilestones);
+        //echo json_encode(array('user'=>  $this->getUserModuleProgress($userID, $moduleID)))
         echo json_encode(array('user'=>10,'avg'=>12,'total'=>20));       
     }
     

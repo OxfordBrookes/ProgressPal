@@ -50,7 +50,7 @@ class Dashboard extends Student_Controller {
         foreach($assignments as $assignment){
             $moduleAvg += $this->getClassAvgAssignmentProgress($assignment->assignment_id);
         }
-        return ($moduleAvg/(count($assignments)*100))*100;
+        return $moduleAvg/count($assignments);
     }
     
     //getAvgAssignmentProgress($assignmentID)

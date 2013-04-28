@@ -1,11 +1,8 @@
 var BASE_URL = "";
-var PAGE_URL = "index.php/student/dashboard/";
 var USER_ID = 1;
 
-(function (window, document, $, baseUrl, userId, pageUrl, undefined) {
+(function (window, document, $, baseUrl, userId, undefined) {
     "use strict";
-
-    baseUrl += pageUrl;
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {
@@ -15,8 +12,8 @@ var USER_ID = 1;
         avgProgress = (avgProgress > 0) ? avgProgress : 0;
 
         $(".bar.bar-success").width(userProgress + "%");
-        $(".bar.bar-success").width(avgProgress + "%");
-        $(".bar.bar-success").width((100 - userProgress - avgProgress) + "%");
+        $(".bar.bar-warning").width(avgProgress + "%");
+        $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
     });
 
     // Load milestones.
@@ -42,7 +39,7 @@ var USER_ID = 1;
         $(".circle").on("click", function () {
             var $milestones;
             var $this = $(this);
-            var id = $this.parent().attr("id").replace("module_").replace("assignment_").replace("milestone_");
+            var id = $this.parent().attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
             var type = $this.parent().attr("id").split("_")[0];
 
             if ($this.hasClass("green")) {
@@ -54,7 +51,8 @@ var USER_ID = 1;
                 $this.addClass("green");
                 $.ajax(baseUrl + "changeComplete/" + userId + "/" + type + "/" + id + "/true", {"type": "post"});
             } else {
-                $milestones = $($this.find(".milestones")[0]);
+                $milestones = $($this.parent().children(".milestones"));
+                console.log($milestones);
 
                 if ($milestones.css("display") === "none") {
                     $milestones.css("display", "block");
@@ -65,4 +63,4 @@ var USER_ID = 1;
         });
     });
 
-}(this, this.window, jQuery, BASE_URL, USER_ID, PAGE_URL));
+}(this, this.window, jQuery, BASE_URL, USER_ID));

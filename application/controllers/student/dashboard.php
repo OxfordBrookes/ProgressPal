@@ -38,7 +38,7 @@ class Dashboard extends CI_Controller {
        
        //array('type' => $obj->)
        
-       
+       $this->load->view('student/dashboard');
     }
     
     //getAvgModuleProgress($moduleID) -> int avgModule

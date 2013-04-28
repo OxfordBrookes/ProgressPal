@@ -39,7 +39,7 @@ var USER_ID = 1;
         $(".circle").on("click", function () {
             var $milestones;
             var $this = $(this);
-            var id = $this.parent().attr("id").replace("module_").replace("assignment_").replace("milestone_");
+            var id = $this.parent().attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
             var type = $this.parent().attr("id").split("_")[0];
 
             if ($this.hasClass("green")) {

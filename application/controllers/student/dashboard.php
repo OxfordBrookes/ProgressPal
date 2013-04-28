@@ -93,7 +93,7 @@ class Dashboard extends Student_Controller {
         return $completed;
     }
     
-    public function isMilestoneCompleted($userID,$milestoneID)
+    public function isUserMilestoneCompleted($userID,$milestoneID)
     {
         $progress = $this->progress_m->get_back(array('user_id' => $userID, 'milestone_id' => $milestoneID));
         return $progress->is_completed;
@@ -112,10 +112,7 @@ class Dashboard extends Student_Controller {
         return $modProgress;///count($assignments);
     }
     
-    public function isUserMilestoneCompleted($userID, $milestoneID){
-        $userProgress = $this->progress_m->get_back('user_id',$userID);
-        return $userProgress->is_completed;
-    }
+    
     public function getUserAssignmentProgress($userID,$assignmentID){
         $user = $this->progress_m->get_back('user_id',$userID);
         $milestones = $this->milestones_m->get_many_by('user_id',$user->user_id);

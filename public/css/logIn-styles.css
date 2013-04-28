@@ -1,0 +1,37 @@
+/* 
+    Document   : logInStyles
+    Created on : 27-Apr-2013, 14:57:26
+    Author     : Alicia
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.formCont{width: 280px; height: 200px; margin: 50px; padding: 25px;
+          border: 1px solid #757575; border-radius: 4px; background-image:url('../img/body_bg.jpg'); }
+.formCont input{width: 265px;}
+.formCont button{width: 280px; padding: 4px; border: 1px solid #B0B0B0; border-radius: 5px;}
+
+#welcomeDescription{width: 280px; height: 50px; margin: 40px 50px 60px 50px; }
+
+.span6{ margin: 0;}
+
+.fieldDescription{position: absolute; font-size: 12px; color: #B0B0B0; margin: 0; padding: 0;}
+
+#passwordRequired button{margin-top: 10px;}
+button:hover{background: #D8D8D8;}
+#signUpForm{height: 300px;}
+
+.pageFoot{border-top: 1px solid #B0B0B0; margin: 0; }
+
+
+.formCont{
+   -moz-box-shadow:    inset 0 0 5px rgba(80, 80, 80, .4);
+   -webkit-box-shadow: inset 0 0 5px rgba(80, 80, 80, .4);
+   box-shadow:         inset 0 0 5px rgba(80, 80, 80, .4);
+}
+
+.c1{color: #0489B1}
+.c2{color: #FA5882}
+.c3{color: #DBA901}
+.c4{ color: #04B404}
+.c5{color: #B40431}

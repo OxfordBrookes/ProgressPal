@@ -81,7 +81,7 @@ class Dashboard extends CI_Controller {
         
     }
     
-    public function getData()
+    public function getData($userID)
     {
         $data = array(array(
            'id' => 1,
@@ -99,6 +99,7 @@ class Dashboard extends CI_Controller {
         );
        
        echo json_encode($data);
+       echo $userID;
     }
     
     //getData($userID) -> JSON {modules, assignments, milestones}

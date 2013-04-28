@@ -59,7 +59,7 @@ class Dashboard extends Student_Controller {
         $milestones = $this->milestone_m->get_many_by('parent_assignment_id',$assignmentID);
         $numComp = 0;
         foreach($milestones as $milestone){
-            if($this->isMilestoneCompleted($milestone->is_completed)){
+            if($this->isMilestoneCompleted()){
                 $numComp++;
             }
         }
@@ -70,8 +70,11 @@ class Dashboard extends Student_Controller {
     {
         $completed = TRUE;
         $assignments = $this->assignment_m->get_many_by('parent_module_id',$moduleID);
+        
+        
+        
         foreach($assignments as $assignment){
-            if(!$this->isAssignmentCompleted($assignment)){
+            if(!$this->isUserMilestoneCompleted(,$assignment->assignment_id)){
                 $completed = FALSE;
                 break;
             }
@@ -79,6 +82,11 @@ class Dashboard extends Student_Controller {
         return $completed;
     }
     
+    public function getEnrolledUsers($moduleID)
+    {
+        
+        return 
+    }
     
     public function isAssignmentCompleted($assignmentID)
     {
@@ -160,6 +168,10 @@ class Dashboard extends Student_Controller {
        //echo $this->getClassAvgModuleProgress(4);
     }
     
+    public function changeCompelte($str)
+    {
+        return true;
+    }
     //getData($userID) -> JSON {modules, assignments, milestones}
     
     //getProgress($userid) -> int getUserProgress & int 

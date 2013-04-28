@@ -6,7 +6,7 @@
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {
-        var userProgress = (progress.user / progress.total) * 100);
+        var userProgress = (progress.user / progress.total) * 100;
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
         avgProgress = (avgProgress > 0) ? avgProgress : 0;

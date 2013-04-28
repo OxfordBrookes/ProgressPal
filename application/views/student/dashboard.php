@@ -19,6 +19,7 @@
 		</div>
 		<div id="milestone" class="milestones">
 		</div>
+
                 </div>
             </div>
         <script type="text/JavaScript">

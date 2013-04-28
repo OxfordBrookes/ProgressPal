@@ -1,4 +1,4 @@
-var BASE_URL = "/";
+var BASE_URL = "";
 var USER_ID = 1;
 
 (function (window, document, $, baseUrl, userId, undefined) {

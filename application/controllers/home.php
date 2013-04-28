@@ -70,11 +70,11 @@ class Home extends CI_Controller {
                     if ($user->is_staff)
                     {
                         $this->session->set_userdata('is_staff', TRUE);
-                        redirect('staff/staff_dashboard');
+                        redirect('staff/staff_dashboard/');
                     }
                     else
                     {
-                        redirect('student/dashboard');
+                        redirect('student/dashboard/');
                     }
                 }
             }

@@ -48,12 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-//$db['default']['hostname'] = 'progresspal6.cloudapp.net';
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-//$db['default']['password'] = 'BrookesTeam6464';
-$db['default']['password'] = '';
-$db['default']['database'] = 'mydb';
+$db['default']['hostname'] = 'eu-cdbr-azure-north-a.cloudapp.net';
+$db['default']['username'] = 'b3de7f40d98a2b';
+$db['default']['password'] = 'dcf96993';
+$db['default']['database'] = 'progresA8WsTh3zT';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

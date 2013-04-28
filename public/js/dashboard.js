@@ -45,11 +45,11 @@ var USER_ID = 1;
             if ($this.hasClass("green")) {
                 $this.removeClass("green");
                 $this.addClass("red");
-                $.ajax(baseUrl + "changeComplete/" + userId + "/" + type + "/" + id + "/false", {"type": "post"});
+                $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false", {"type": "post"});
             } else if ($this.hasClass("red")) {
                 $this.removeClass("red");
                 $this.addClass("green");
-                $.ajax(baseUrl + "changeComplete/" + userId + "/" + type + "/" + id + "/true", {"type": "post"});
+                $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true", {"type": "post"});
             } else {
                 $milestones = $($this.parent().children(".milestones"));
                 console.log($milestones);

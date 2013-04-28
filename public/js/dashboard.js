@@ -4,7 +4,7 @@ var USER_ID = 1;
 (function (window, document, $, baseUrl, userId, undefined) {
     "use strict";
 
-    baseUrl = (BASE_URL[-1] === "/") ? BASE_URL : BASE_URL + "/";
+    baseUrl = (baseUrl[baseUrl.length - 1] === "/") ? baseUrl : baseUrl + "/";
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (progress) {

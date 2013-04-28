@@ -170,7 +170,7 @@ class Dashboard extends Student_Controller {
        //echo $this->getClassAvgModuleProgress(4);
     }
     
-    public function changeCompelte($str)
+    public function changeComplete($str)
     {
         //return true;
     }

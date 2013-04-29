@@ -85,6 +85,6 @@ class Home extends CI_Controller {
         $this->session->set_userdata('user_id', 1);
         redirect('student/dashboard/');
 
-        $this->load->view('signin');
+        //$this->load->view('signin');
     }
 }

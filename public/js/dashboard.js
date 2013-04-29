@@ -49,21 +49,21 @@ var USER_ID = -1;
         $("#milestones").append(showMilestones(milestones));
         
         var toggle = function () {
-            var $milestones;
             var $this = $(this);
             var parent = $this.hasClass("circle") ? $this.parent() : $this.parent().parent();
             var id = parent.attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
             var type = parent.attr("id").split("_")[0];
+            var $circle = $this.hasClass("circle") ? $this.parent() : $($this.parent().parent().children("circle")[0]);
         
-            if ($this.hasClass("green")) {
-                $this.removeClass("green");
-                $this.addClass("red");
+            if ($circle.hasClass("green")) {
+                $circle.removeClass("green");
+                $circle.addClass("red");
                 $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false", {"type": "post"});
                 progress.user -= 1;
                 calculateProgress();
-            } else if ($this.hasClass("red")) {
-                $this.removeClass("red");
-                $this.addClass("green");
+            } else if ($circle.hasClass("red")) {
+                $circle.removeClass("red");
+                $circle.addClass("green");
                 $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true", {"type": "post"});
                 progress.user += 1;
                 calculateProgress();

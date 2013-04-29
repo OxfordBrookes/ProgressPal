@@ -50,9 +50,10 @@ var USER_ID = -1;
         
         var toggle = function () {
             var $milestones;
-            var $this = $(this);
-            var id = $this.parent().attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
-            var type = $this.parent().attr("id").split("_")[0];
+            var $this = $(elem);
+            var parent = $this.hasClass("circle") ? $this.parent() : $this.parent().parent();
+            var id = parent.attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
+            var type = parent.attr("id").split("_")[0];
         
             if ($this.hasClass("green")) {
                 $this.removeClass("green");

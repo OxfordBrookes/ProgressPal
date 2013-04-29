@@ -1,4 +1,4 @@
-// Defaults. These should be changed before responding with this javascript.
+// Defaults. These should be changed before responding with this JavaScript.
 var BASE_URL = "";
 var USER_ID = -1;
 
@@ -48,7 +48,7 @@ var USER_ID = -1;
         
         $("#milestones").append(showMilestones(milestones));
         
-        var progressChange = function (increment) {
+        var progressChange = function (type, id, increment) {
             //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
             $.post("", {
                 "func": "changeComplete", 
@@ -71,11 +71,11 @@ var USER_ID = -1;
             if ($circle.hasClass("green")) {
                 $circle.removeClass("green");
                 $circle.addClass("red");
-                progressChange(-1);
+                progressChange(type, id, -1);
             } else if ($circle.hasClass("red")) {
                 $circle.removeClass("red");
                 $circle.addClass("green");
-                progressChange(1);
+                progressChange(type, id, 1);
             } else {
                 $(parent.children(".milestones")).toggle("fast");
             }

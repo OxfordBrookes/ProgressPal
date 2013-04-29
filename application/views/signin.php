@@ -20,6 +20,7 @@
               <div id="welcomeDescription" style="background: url(<?php echo base_url('img/up-grey.png') ?>)">
                   <h2 class="c2">Welcome.</h2>
                   <p>ProgressPal - A Buddy to make you Rise!</p>
+
                   <p>
                       <?php echo validation_errors('<div class="alert">', '</div>') ?>
                   </p>
@@ -27,11 +28,13 @@
               
        <div id="passwordRequired">   
         <div class="formCont">
+
             <h2 class="c3">Log In</h2>
+
             
             <form name="frmLogin" action="<?php echo base_url('index.php/home/login') ?>" method="post">
-                <input type="text" name="email" placeholder="Email Address"  />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" value="test@test.com" name="email" placeholder="Email Address"  />
+                <input type="password" value="test100" name="password" placeholder="Password" />
                 <br />  
                 <p class="small click" id="userOps">Forgot Password?</p>
                 <input type="checkbox" name="staySignedIn" class="hide" value="true" id="chkStaySignedIn"/>
@@ -42,7 +45,9 @@
         </div>
           
         <div class="hide formCont" id="iForgotMyPassword">
+
            <h3 class="c4">Reset Password</h3>
+
           <form name="forgetPassword" action="/actions/resetPassword.php" method="post">
             <p>
               Enter your username or email address below, and we will 
@@ -60,7 +65,9 @@
           
           <div class="span6">
           <div class="formCont" id="signUpForm">
+
            <h2 class="c5">Sign Up</h2>
+
           <form name="frmSignUp" action="" method="post">
                 <input type="text" name="txtFirstName" placeholder="First Name" />
                 <br />
@@ -80,13 +87,13 @@
           </div>
           
           <div class="span12 pageFoot">
-              <p class="BottomOfScreenText">(C) 2013</p>
+              <p class="BottomOfScreenText">(C)Oxford Brookes Team 2013</p>
               <br />
           </div>
       </div>
       
       
-    <script src="<?php echo base_url('http://code.jquery.com/jquery.js') ?>"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
     <script src="<?php echo base_url('js/logInValidation.js') ?>"></script>
     <script src="<?php echo base_url('js/bootstrap.min.js') ?>"></script>
    

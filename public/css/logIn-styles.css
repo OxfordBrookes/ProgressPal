@@ -6,7 +6,9 @@
         Purpose of the stylesheet follows.
 */
 
+
 .formCont{width: 280px; height: 200px; margin: 50px; padding: 25px;
+
           border: 1px solid #757575; border-radius: 4px; background-image:url('../img/body_bg.jpg'); }
 .formCont input{width: 265px;}
 .formCont button{width: 280px; padding: 4px; border: 1px solid #B0B0B0; border-radius: 5px;}
@@ -28,6 +30,7 @@ button:hover{background: #D8D8D8;}
    -moz-box-shadow:    inset 0 0 5px rgba(80, 80, 80, .4);
    -webkit-box-shadow: inset 0 0 5px rgba(80, 80, 80, .4);
    box-shadow:         inset 0 0 5px rgba(80, 80, 80, .4);
+
 }
 
 .c1{color: #0489B1; display: inline;}

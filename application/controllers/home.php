@@ -36,10 +36,15 @@ class Home extends CI_Controller {
      */
     public function login()
     {
+        
         $this->session->unset_userdata('user_id');
         $this->session->unset_userdata('is_staff');
 
-        $this->load->model('user_m');
+        $this->session->set_userdata('user_id', 1);
+        $this->session->set_userdata('is_staff', 1);
+        
+        
+        //$this->load->model('user_m');
 
         /*$validation_rules = array(
             array(

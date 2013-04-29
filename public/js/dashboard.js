@@ -56,7 +56,6 @@ var USER_ID = -1;
         $("#milestones").append(showMilestones(milestones));
 
         var progressChange = function (type, id, increment) {
-            //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
             $.post("", {
                 "func": "changeComplete",
                 "userId": userId,

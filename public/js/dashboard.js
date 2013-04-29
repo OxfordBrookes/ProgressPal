@@ -1,5 +1,6 @@
+// Defaults. These should be changed before responding with this javascript.
 var BASE_URL = "";
-var USER_ID = 1;
+var USER_ID = -1;
 
 // Wrapped in IIFE to improve scope traversal.
 (function (window, document, $, baseUrlGrr, userId, undefined) {
@@ -66,7 +67,7 @@ var USER_ID = 1;
                 progress.user += 1;
                 calculateProgress();
             } else {
-                $($this.parent().children(".milestones")).toggle();
+                $($this.parent().children(".milestones")).toggle("fast");
             }
         });
     });

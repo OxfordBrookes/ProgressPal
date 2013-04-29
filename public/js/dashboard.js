@@ -69,7 +69,7 @@ var USER_ID = -1;
                 progress.user += 1;
                 calculateProgress();
             } else {
-                $($this.parent().children(".milestones")).toggle("fast");
+                $(parent.children(".milestones")).toggle("fast");
             }
         };
         

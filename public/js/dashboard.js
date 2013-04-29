@@ -3,7 +3,7 @@ var BASE_URL = "";
 var USER_ID = -1;
 
 // Wrapped in IIFE to improve scope traversal.
-(function ($, baseUrl, userId, undefined) {
+(function ($, baseUrl, userId) {
     "use strict";
     var progress;
 

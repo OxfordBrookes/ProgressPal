@@ -7,15 +7,23 @@ var USER_ID = -1;
     "use strict";
     var progress;
 
-    var calculateProgress = function () {
+    var calculateProgress = function (increment) {
         var userProgress = parseInt((progress.user / progress.total) * 100);
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
         avgProgress = parseInt(((avgProgress > 0) ? avgProgress : 0), 10);
-
-        $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
-        $(".bar.bar-warning").width(avgProgress + "%");
-        $(".bar.bar-success").width(userProgress + "%");
+        
+        // Fixed "white-flash" in chrome.
+        if (increment === 1) {
+            $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
+            $(".bar.bar-warning").width(avgProgress + "%");
+            $(".bar.bar-success").width(userProgress + "%");
+        } else {
+            $(".bar.bar-success").width(userProgress + "%");
+            $(".bar.bar-warning").width(avgProgress + "%");
+            $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
+        }
+        
     };
 
     // "No-Slash" fix.

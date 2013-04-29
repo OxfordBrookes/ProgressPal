@@ -59,7 +59,7 @@ var USER_ID = -1;
                 $circle.removeClass("green");
                 $circle.addClass("red");
                 //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
-                $.post({
+                $.post("", {
                     "func": "changeComplete", 
                     "userId": userId,
                     "type": type,

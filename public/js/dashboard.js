@@ -54,7 +54,6 @@ var USER_ID = -1;
             var parent = $this.hasClass("circle") ? $this.parent() : $this.parent().parent();
             var id = parent.attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
             var type = parent.attr("id").split("_")[0];
-            console.log($this.parent().parent());
         
             if ($this.hasClass("green")) {
                 $this.removeClass("green");

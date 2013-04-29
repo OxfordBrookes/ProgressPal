@@ -58,7 +58,14 @@ var USER_ID = -1;
             if ($circle.hasClass("green")) {
                 $circle.removeClass("green");
                 $circle.addClass("red");
-                $.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
+                //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
+                $.post("index.php", {
+                    "func": "student/dashboard/", 
+                    "userId": userId,
+                    "type": type,
+                    "id": id,
+                    "completed": false
+                });
                 progress.user -= 1;
                 calculateProgress();
             } else if ($circle.hasClass("red")) {

@@ -3,12 +3,8 @@ var BASE_URL = "";
 var USER_ID = -1;
 
 // Wrapped in IIFE to improve scope traversal.
-(function (window, document, $, baseUrlGrr, userId, undefined) {
+(function ($, baseUrl, userId, undefined) {
     "use strict";
-
-    // "No-Slash" fix.
-    var baseUrl = (baseUrlGrr[baseUrlGrr.length - 1] === "/") ? baseUrlGrr : baseUrlGrr + "dashboard/";
-    
     var progress;
 
     var calculateProgress = function () {
@@ -21,6 +17,9 @@ var USER_ID = -1;
         $(".bar.bar-warning").width(avgProgress + "%");
         $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
     };
+
+    // "No-Slash" fix.
+    baseUrl = (baseUrl[baseUrl.length - 1] === "/") ? baseUrl : baseUrl + "dashboard/";
 
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (data) {
@@ -86,4 +85,4 @@ var USER_ID = -1;
         $(".desc").on("click", toggle);
     });
 
-}(this, this.window, jQuery, BASE_URL, USER_ID));
+}(jQuery, BASE_URL, USER_ID));

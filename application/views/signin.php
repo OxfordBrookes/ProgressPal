@@ -33,8 +33,8 @@
 
             
             <form name="frmLogin" action="<?php echo base_url('index.php/home/login') ?>" method="post">
-                <input type="text" name="email" placeholder="Email Address"  />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" value="test@test.com" name="email" placeholder="Email Address"  />
+                <input type="password" value="test100" name="password" placeholder="Password" />
                 <br />  
                 <p class="small click" id="userOps">Forgot Password?</p>
                 <input type="checkbox" name="staySignedIn" class="hide" value="true" id="chkStaySignedIn"/>

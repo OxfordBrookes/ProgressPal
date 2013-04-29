@@ -87,7 +87,7 @@
           </div>
           
           <div class="span12 pageFoot">
-              <p class="BottomOfScreenText">(C) 2013</p>
+              <p class="BottomOfScreenText">(C)Oxford Brookes Team 2013</p>
               <br />
           </div>
       </div>

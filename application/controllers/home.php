@@ -81,8 +81,8 @@ class Home extends CI_Controller {
 
             $this->session->set_flashdata('error', 'Invalid sign in details');
         }*/
-        $user = $this->user_m->get_by(array('email' => $this->input->post('email')));
-        $this->session->set_userdata('user_id', $user->user_id);
+        //$user = $this->user_m->get_by(array('email' => $this->input->post('email')));
+        $this->session->set_userdata('user_id', 1);
         redirect('student/dashboard/');
 
         $this->load->view('signin');

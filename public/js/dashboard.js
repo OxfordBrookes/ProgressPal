@@ -30,30 +30,30 @@ var USER_ID = -1;
 
     // Load milestones.
     $.getJSON(baseUrl + "getData/" + userId, function (milestones) {
-       var showMilestones = function (milestones) {
+        var showMilestones = function (milestones) {
            var i, milestone, circleColour, children;
            var len = milestones.length;
            var s = "";
-
+        
            for (i = 0; i < len; i += 1) {
                milestone = milestones[i];
                circleColour = (milestone.children) ? "grey" : ((milestone.complete === true) ? "green" : "red");
                children = (milestone.children) ? "<div class='milestones' style='display:none'>\n" + showMilestones(milestone.children) + "</div>" : "";
-
+        
                s += "<div id='" + milestone.type + "_" + milestone.id + "' class='milestone'><div class='circle " + circleColour + " pull-left'></div><div class='pull-left'><div class='name'>" + milestone.name + "</div><div class='desc'>" + milestone.desc + "</div></div><div class='clearfix'></div>" + children + "</div>";
            }
-
+        
            return s;
-       };
-
+        };
+        
         $("#milestones").append(showMilestones(milestones));
-
-        $(".circle").on("click", function () {
+        
+        var toggle = function () {
             var $milestones;
             var $this = $(this);
             var id = $this.parent().attr("id").replace("module_", "").replace("assignment_", "").replace("milestone_", "");
             var type = $this.parent().attr("id").split("_")[0];
-
+        
             if ($this.hasClass("green")) {
                 $this.removeClass("green");
                 $this.addClass("red");
@@ -69,7 +69,11 @@ var USER_ID = -1;
             } else {
                 $($this.parent().children(".milestones")).toggle("fast");
             }
-        });
+        };
+        
+        $(".circle").on("click", toggle);
+        $(".name").on("click", toggle);
+        $(".desc").on("click", toggle);
     });
 
 }(this, this.window, jQuery, BASE_URL, USER_ID));

@@ -243,9 +243,10 @@ class Dashboard extends Student_Controller {
        //echo $this->getClassAvgModuleProgress(4);
     }
     
-    public function changeComplete($str)
+    public function changeComplete()
     {
         //$this->
+        //$this->input->post('password');
         echo 'true';
     }
     //getData($userID) -> JSON {modules, assignments, milestones}

@@ -58,13 +58,13 @@ var USER_ID = -1;
             if ($circle.hasClass("green")) {
                 $circle.removeClass("green");
                 $circle.addClass("red");
-                $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false", {"type": "post"});
+                $.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
                 progress.user -= 1;
                 calculateProgress();
             } else if ($circle.hasClass("red")) {
                 $circle.removeClass("red");
                 $circle.addClass("green");
-                $.ajax(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true", {"type": "post"});
+                $.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true");
                 progress.user += 1;
                 calculateProgress();
             } else {

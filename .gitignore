@@ -1,6 +1,6 @@
 .idea/*
 application/logs/*
-application/config/config.php
+application/config/*
 nbproject/*
 .DS_STORE
 Thumbs.db

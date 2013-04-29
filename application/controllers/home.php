@@ -28,8 +28,8 @@ class Home extends CI_Controller {
      */
     public function index()
 	{
-            redirect('student/dashboard/');
-		//$this->load->view('signin');
+            //redirect('student/dashboard/');
+		$this->load->view('signin');
 	}
 
     /**
@@ -38,16 +38,16 @@ class Home extends CI_Controller {
     public function login()
     {
         
-        //$this->session->unset_userdata('user_id');
-        //$this->session->unset_userdata('is_staff');
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('is_staff');
 
-        $this->session->set_userdata('user_id', 1);
-        $this->session->set_userdata('is_staff', 1);
+        //$this->session->set_userdata('user_id', 1);
+        //$this->session->set_userdata('is_staff', 1);
         
         
-        //$this->load->model('user_m');
+        $this->load->model('user_m');
 
-        /*$validation_rules = array(
+        $validation_rules = array(
             array(
                 'field' => 'email',
                 'label' => 'Email address',
@@ -86,11 +86,11 @@ class Home extends CI_Controller {
             }
 
             $this->session->set_flashdata('error', 'Invalid sign in details');
-        }*/
+        }
         //$user = $this->user_m->get_by(array('email' => $this->input->post('email')));
         //$this->session->set_userdata('user_id', 1);
-        redirect('student/dashboard/');
+        //redirect('student/dashboard/');
 
-        //$this->load->view('signin');
+        $this->load->view('signin');
     }
 }

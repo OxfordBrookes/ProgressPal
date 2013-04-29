@@ -266,7 +266,7 @@ $config['sess_time_to_update']	= 300;
 |
 */
 $config['cookie_prefix']	= "progresspal_";
-$config['cookie_domain']	= "http://progresspal.azurewebsites.net/";
+$config['cookie_domain']	= "progresspal.azurewebsites.net";
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
 

@@ -59,8 +59,8 @@ var USER_ID = -1;
                 $circle.removeClass("green");
                 $circle.addClass("red");
                 //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
-                $.post("index.php", {
-                    "func": "student/dashboard/", 
+                $.post({
+                    "func": "changeComplete", 
                     "userId": userId,
                     "type": type,
                     "id": id,

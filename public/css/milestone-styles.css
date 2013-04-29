@@ -10,6 +10,7 @@
 	border-radius: 50px;
 	margin-top: 4px;
 	margin-right: 4px;
+	cursor: pointer;
 }
 
 .circle.grey {
@@ -27,10 +28,12 @@
 .name {
 	color: #434343;
 	font-size: 14px;
+	cursor: pointer;
 }
 
 .desc {
 	color: #666666;
 	font-size: 12px;
+	cursor: pointer;
 }
 

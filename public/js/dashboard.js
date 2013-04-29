@@ -13,9 +13,9 @@ var USER_ID = -1;
 
         avgProgress = parseInt(((avgProgress > 0) ? avgProgress : 0), 10);
 
-        $(".bar.bar-success").width(userProgress + "%");
-        $(".bar.bar-warning").width(avgProgress + "%");
         $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
+        $(".bar.bar-warning").width(avgProgress + "%");
+        $(".bar.bar-success").width(userProgress + "%");
     };
 
     // "No-Slash" fix.

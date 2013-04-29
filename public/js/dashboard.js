@@ -1,10 +1,13 @@
 var BASE_URL = "";
 var USER_ID = 1;
 
+// Wrapped in IIFE to improve scope traversal.
 (function (window, document, $, baseUrlGrr, userId, undefined) {
     "use strict";
 
+    // "No-Slash" fix.
     var baseUrl = (baseUrlGrr[baseUrlGrr.length - 1] === "/") ? baseUrlGrr : baseUrlGrr + "dashboard/";
+    
     var progress;
 
     var calculateProgress = function () {
@@ -63,14 +66,7 @@ var USER_ID = 1;
                 progress.user += 1;
                 calculateProgress();
             } else {
-                $milestones = $($this.parent().children(".milestones"));
-                console.log($milestones);
-
-                if ($milestones.css("display") === "none") {
-                    $milestones.css("display", "block");
-                } else {
-                    $milestones.css("display", "none");
-                }
+                $($this.parent().children(".milestones")).toggle();
             }
         });
     });

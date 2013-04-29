@@ -12,10 +12,10 @@ var USER_ID = -1;
     var progress;
 
     var calculateProgress = function () {
-        var userProgress = (progress.user / progress.total) * 100;
+        var userProgress = parseInt((progress.user / progress.total) * 100);
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
-        avgProgress = (avgProgress > 0) ? avgProgress : 0;
+        avgProgress = parseInt(((avgProgress > 0) ? avgProgress : 0), 10);
 
         $(".bar.bar-success").width(userProgress + "%");
         $(".bar.bar-warning").width(avgProgress + "%");

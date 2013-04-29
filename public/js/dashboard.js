@@ -48,6 +48,19 @@ var USER_ID = -1;
         
         $("#milestones").append(showMilestones(milestones));
         
+        var progressChange = function (increment) {
+            //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
+            $.post("", {
+                "func": "changeComplete", 
+                "userId": userId,
+                "type": type,
+                "id": id,
+                "completed": increment
+            });
+            progress.user += increment;
+            calculateProgress();
+        };
+        
         var toggle = function () {
             var $this = $(this);
             var parent = $this.hasClass("circle") ? $this.parent() : $this.parent().parent();
@@ -58,22 +71,11 @@ var USER_ID = -1;
             if ($circle.hasClass("green")) {
                 $circle.removeClass("green");
                 $circle.addClass("red");
-                //$.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",false");
-                $.post("", {
-                    "func": "changeComplete", 
-                    "userId": userId,
-                    "type": type,
-                    "id": id,
-                    "completed": false
-                });
-                progress.user -= 1;
-                calculateProgress();
+                progressChange(-1);
             } else if ($circle.hasClass("red")) {
                 $circle.removeClass("red");
                 $circle.addClass("green");
-                $.post(baseUrl + "changeComplete/" + userId + "," + type + "," + id + ",true");
-                progress.user += 1;
-                calculateProgress();
+                progressChange(1);
             } else {
                 $(parent.children(".milestones")).toggle("fast");
             }

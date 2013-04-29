@@ -246,7 +246,7 @@ class Dashboard extends Student_Controller {
     public function changeComplete($str)
     {
         //$this->
-        return true;
+        echo 'true';
     }
     //getData($userID) -> JSON {modules, assignments, milestones}
     

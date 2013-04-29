@@ -65,7 +65,7 @@ var USER_ID = -1;
                 "completed": increment
             });
             progress.user += increment;
-            calculateProgress();
+            calculateProgress(increment);
         };
         
         var toggle = function () {

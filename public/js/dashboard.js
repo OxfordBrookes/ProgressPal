@@ -96,7 +96,7 @@ var USER_ID = -1;
     });
 
     // Toggle all shortcut.
-    $(document).bind('keydown', 'ctrl+space', function () {
+    $(document).jkey('ctrl+space', function () {
         $(".milestones").toggle();
     });
 }(this.document, jQuery, BASE_URL, USER_ID));

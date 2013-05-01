@@ -96,7 +96,7 @@ var USER_ID = -1;
     });
 
     // Toggle all shortcut.
-    $(document).jkey('ctrl+space', function () {
+    $(document).jkey("ctrl+space", function () {
         var milestones = $(".milestones");
         var action = $(milestones[0]).children().children(".milestones").is(":visible") ? "hide" : "show";
         var children = $(milestones.slice(1));

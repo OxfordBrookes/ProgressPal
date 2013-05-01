@@ -101,6 +101,6 @@ var USER_ID = -1;
         var action = $(milestones.slice($(milestones[0]).children().length)).is(":visible") ? "hide" : "show";
         var children = $(milestones.slice(1));
 
-        children[action]("slow");
+        children[action]((action === "hide") ? "slow" : null);
     });
 }(this.document, jQuery, BASE_URL, USER_ID));

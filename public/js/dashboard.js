@@ -3,17 +3,18 @@ var BASE_URL = "";
 var USER_ID = -1;
 
 // Wrapped in IIFE to improve scope traversal.
-(function ($, baseUrl, userId) {
+(function (document, $, baseUrl, userId) {
     "use strict";
     var progress;
 
+    // Calculates and updates the progress bar.
     var calculateProgress = function (increment) {
         var userProgress = parseInt(((progress.user / progress.total) * 100), 10);
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
         avgProgress = parseInt(((avgProgress > 0) ? avgProgress : 0), 10);
 
-        // Fixed "white-flash" in chrome.
+        // "White flash" fix (for chrome).
         if (increment === 1) {
             $(".bar.bar-danger").width((100 - userProgress - avgProgress) + "%");
             $(".bar.bar-warning").width(avgProgress + "%");
@@ -37,6 +38,7 @@ var USER_ID = -1;
 
     // Load milestones.
     $.getJSON(baseUrl + "getData/" + userId, function (milestones) {
+        // Displays all milestones.
         var showMilestones = function (milestones) {
             var i, milestone, circleColour, children;
             var len = milestones.length;
@@ -53,8 +55,7 @@ var USER_ID = -1;
             return s;
         };
 
-        $("#milestones").append(showMilestones(milestones));
-
+        // Marks a milestone as complete/incomplete.
         var progressChange = function (type, id, increment) {
             $.post("", {
                 "func": "changeComplete",
@@ -67,6 +68,7 @@ var USER_ID = -1;
             calculateProgress(increment);
         };
 
+        // Toggles (show/hide) the children of a milestone.
         var toggle = function () {
             var $this = $(this);
             var parent = $this.hasClass("circle") ? $this.parent() : $this.parent().parent();
@@ -87,9 +89,14 @@ var USER_ID = -1;
             }
         };
 
+        $("#milestones").append(showMilestones(milestones));
         $(".circle").on("click", toggle);
         $(".name").on("click", toggle);
         $(".desc").on("click", toggle);
     });
 
-}(jQuery, BASE_URL, USER_ID));
+    // Toggle all shortcut.
+    $(document).bind('keydown', 'ctrl+space', function () {
+        $(".milestones").toggle();
+    });
+}(this.document, jQuery, BASE_URL, USER_ID));

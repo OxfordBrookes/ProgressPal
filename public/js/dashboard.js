@@ -100,7 +100,11 @@ var USER_ID = -1;
         var milestones = $(".milestones");
         var action = $(milestones[0]).children().children(".milestones").is(":visible") ? "hide" : "show";
         var children = $(milestones.slice(1));
+        
+        if (action === "show") {
+            $(milestones[0]).children().children().find(".milestones").show();
+        }
 
-        children[action]((action === "hide") ? "slow" : null);
+        children[action]("slow");
     });
 }(this.document, this.jQuery, BASE_URL, USER_ID));

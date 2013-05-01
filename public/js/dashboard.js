@@ -98,7 +98,7 @@ var USER_ID = -1;
     // Toggle all shortcut.
     $(document).jkey('ctrl+space', function () {
         var milestones = $(".milestones");
-        var action = $(milestones.slice($(milestones[0]).children().length)).is(":visible") ? "hide" : "show";
+        var action = $(milestones.slice($(milestones[0]).children().length) + 1).is(":visible") ? "hide" : "show";
         var children = $(milestones.slice(1));
 
         children[action]((action === "hide") ? "slow" : null);

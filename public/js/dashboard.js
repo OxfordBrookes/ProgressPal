@@ -101,7 +101,7 @@ var USER_ID = -1;
         var action = $(milestones[0]).children().children(".milestones").is(":visible") ? "hide" : "show";
         var children = $(milestones.slice(1));
 
-        // "Show-Jump" fix. Most likely caused my jQuery or Nick Skelton :P.
+        // "Show-Jump" fix. Most likely caused by jQuery or Nick Skelton :P.
         if (action === "show") {
             $(milestones[0]).children().children().find(".milestones").show();
         }

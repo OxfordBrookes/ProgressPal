@@ -103,4 +103,4 @@ var USER_ID = -1;
 
         children[action]((action === "hide") ? "slow" : null);
     });
-}(this.document, jQuery, BASE_URL, USER_ID));
+}(this.document, this.jQuery, BASE_URL, USER_ID));

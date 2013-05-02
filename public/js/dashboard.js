@@ -8,7 +8,7 @@ var USER_ID = -1;
     var progress;
 
     // Calculates and updates the progress bar.
-    var calculateProgress = function (increment) {
+    var displayProgress = function (increment) {
         var userProgress = parseInt(((progress.user / progress.total) * 100), 10);
         var avgProgress = ((progress.avg / progress.total) * 100) - userProgress;
 
@@ -33,7 +33,7 @@ var USER_ID = -1;
     // Load progress bar data.
     $.getJSON(baseUrl + "getProgress/" + userId, function (data) {
         progress = data;
-        calculateProgress();
+        displayProgress();
     });
 
     // Load milestones.
@@ -56,7 +56,7 @@ var USER_ID = -1;
         };
 
         // Marks a milestone as complete/incomplete.
-        var progressChange = function (type, id, increment) {
+        var changeProgress = function (type, id, increment) {
             $.post("", {
                 "func": "changeComplete",
                 "userId": userId,
@@ -65,7 +65,7 @@ var USER_ID = -1;
                 "completed": increment
             });
             progress.user += increment;
-            calculateProgress(increment);
+            displayProgress(increment);
         };
 
         // Toggles (show/hide) the children of a milestone.
@@ -79,11 +79,11 @@ var USER_ID = -1;
             if ($circle.hasClass("green")) {
                 $circle.removeClass("green");
                 $circle.addClass("red");
-                progressChange(type, id, -1);
+                changeProgress(type, id, -1);
             } else if ($circle.hasClass("red")) {
                 $circle.removeClass("red");
                 $circle.addClass("green");
-                progressChange(type, id, 1);
+                changeProgress(type, id, 1);
             } else {
                 $(parent.children(".milestones")).toggle("fast");
             }
